@@ -9,7 +9,8 @@ struct CountsBySoH {
 
 struct CountsBySoH countBatteriesByHealth(const int* presentCapacities, int nBatteries) {
   struct CountsBySoH counts = {0, 0, 0};
-    for (int i = 0; i < nBatteries; i++) {
+
+  for (int i = 0; i < nBatteries; i++) {
     double soh = (double)presentCapacities[i] / 120.0 * 100.0; // Calculate SoH as a percentage
 
     if (soh > 80.0 && soh <= 100.0) {
@@ -21,14 +22,9 @@ struct CountsBySoH countBatteriesByHealth(const int* presentCapacities, int nBat
     }
   }
 
+
   return counts;
 }
-
-
-In this code, the countBatteriesByHealth function takes an array of present capacities and the number of batteries as input. It iterates through the batteries, calculates their SoH as a percentage, and classifies them based on the given criteria. The counts are stored in the struct CountsBySoH structure, and this structure is returned from the function.
-
-In the main function, an example array of battery capacities is provided, and the countBatteriesByHealth function is called to count and classify the batteries. Asserts are used to check the counts, ensuring that the implementation is correct. You can add more test cases or asserts as needed.
-
 
 void testBucketingByHealth() {
   const int presentCapacities[] = {115, 118, 80, 95, 91, 77};
